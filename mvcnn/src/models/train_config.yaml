@@ -1,0 +1,38 @@
+# This file configures the training settings to train CNN and MVCNN models.
+
+# GPU settings
+# [ cpu, cuda]
+accelerator: cuda
+devices: 1
+
+# Dataset configuration
+# decides the dataset for training and also the name of the training logs folder
+# data_set_name: ["Set3_clean", "Set3_noisy"]
+data_set_name: ["Set3_clean"]
+
+# CNN configuration
+# Based on network_type model, classifier, data will be defined
+# [mvcnn, cnn]
+network_type: cnn
+
+# Fusion strategy
+# Only works with MVCNN 
+# [latefusion, scoresum, scoremax, scoremul]
+fusion_strategy : scoresum
+
+# Training settings
+max_epochs: 1000
+learning_rate : 0.0001
+
+# Data preprocessing
+# This angle will be used for random rotation augmentation for the training dataset
+rand_rot_angle: [0,20]
+
+# Number of views
+# TESTED only for 3 views
+num_views: 3
+
+# Extra
+# Learning rate tuning
+# Boolean to tune the learning rate with a fixed seed 
+lr_tuning: False

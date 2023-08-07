@@ -1,0 +1,24 @@
+name: mvcnn
+channels:
+  - nvidia
+  - pytorch
+  - defaults
+dependencies:
+  - python=3.10
+  - console_shortcut
+  - pytorch=2.0.1
+  - torchvision=0.15.2
+  - matplotlib=3.7.1
+  - pytorch-cuda=11.7
+  - torchaudio=2.0.2
+  - ipykernel
+  - tensorboard
+  - spyder
+  - seaborn=0.12.2
+  - captum=0.6.0
+  - pip=23.1.2
+  - black  
+  - pip:
+    - lightning==2.0.3
+    - optuna==3.2.0
+  

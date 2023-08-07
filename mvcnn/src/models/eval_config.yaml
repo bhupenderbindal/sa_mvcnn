@@ -1,0 +1,56 @@
+# This file configures the evaluation settings to train CNN and MVCNN models.
+
+# GPU settings
+# [ cpu, cuda]
+accelerator: cuda
+devices: 1
+
+# Model path
+# model-ckpt-path needs to be carefully mentioned for the model to be evaluated
+model_ckpt_path: [
+        "Set3_clean",
+        "version_0",
+        "checkpoints",
+        "epoch=12-step=1300.ckpt"] # ckpt file
+        #  "epoch=26-step=2538.ckpt"]
+
+# Dataset configuration 
+# decides the SPIRE dataset for evaluation
+# keep it the same as in model-ckpt-path above unless one wants to test on 
+# different dataset than the model was trained on
+data_set_name: Set3_clean
+
+# CNN configuration
+# Based in network_type model, classifier, data will be defined
+# network_type: [cnn, mvcnn]
+network_type: mvcnn
+
+# Fusion strategy
+# Only works with MVCNN 
+# [latefusion, scoresum, scoremax, scoremul]
+fusion_strategy : scoresum
+
+# Test boolean
+# Whether to execute testing or not
+test: True
+
+# boolean to test real data or synthetic data
+# If True, then test real data; if False, then test SPIRE test data
+test_real_data: True
+
+# boolean to plot predictions during test 
+# If True, then plot predictions; if False, then do not plot predictions
+plot_preds: False
+
+# Inference boolean
+# Decides whether to execute inference or not
+# Inference requires no class folder for predicting on data without labels
+# class and labels mapping : {'diamond': 0, 'gyroid': 1, 'lonsdaleite': 2, 'primitive': 3})
+inference: False
+
+# Extra
+# WARNING: VISUALISE ATTRIBUTIONS IS NOT STABLE AND CAUSE FREEZING OF SYSTEM
+# visualise attributions boolean
+# If True then visualise attributions, if False then do not visualise attributions
+# for a random image from the validation set 
+visualize_attributions: False
